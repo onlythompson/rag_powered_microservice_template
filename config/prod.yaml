@@ -1,0 +1,45 @@
+api:
+  host: "0.0.0.0"
+  port: 8080
+  debug: false
+  reload: false
+
+database:
+  url: "postgresql://user:password@db-host:5432/rag_microservice"
+
+llm:
+  model_name: "gpt-4"
+  temperature: 0.5
+  max_tokens: 200
+
+embedding:
+  model_name: "text-embedding-ada-002"
+
+vector_store:
+  type: "pinecone"
+  api_key: "${PINECONE_API_KEY}"
+  environment: "${PINECONE_ENVIRONMENT}"
+  index_name: "${PINECONE_INDEX_NAME}"
+
+document_processing:
+  chunk_size: 1000
+  chunk_overlap: 200
+
+observability:
+  log_level: "INFO"
+  otlp_endpoint: "http://otel-collector:4317"
+  enable_metrics: true
+  enable_tracing: true
+
+security:
+  secret_key: "${JWT_SECRET_KEY}"
+  access_token_expire_minutes: 15
+
+rate_limiting:
+  enabled: true
+  requests_per_minute: 60
+
+caching:
+  enabled: true
+  redis_url: "redis://redis-host:6379/0"
+  ttl_seconds: 3600

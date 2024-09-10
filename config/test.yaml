@@ -1,0 +1,40 @@
+api:
+  host: "localhost"
+  port: 8000
+  debug: true
+  reload: false
+
+database:
+  url: "sqlite:///:memory:"
+
+llm:
+  model_name: "gpt-3.5-turbo"
+  temperature: 0
+  max_tokens: 50
+
+embedding:
+  model_name: "text-embedding-ada-002"
+
+vector_store:
+  type: "faiss"
+  index_path: ":memory:"
+
+document_processing:
+  chunk_size: 500
+  chunk_overlap: 50
+
+observability:
+  log_level: "ERROR"
+  otlp_endpoint: ""
+  enable_metrics: false
+  enable_tracing: false
+
+security:
+  secret_key: "test_secret_key"
+  access_token_expire_minutes: 5
+
+rate_limiting:
+  enabled: false
+
+caching:
+  enabled: false
